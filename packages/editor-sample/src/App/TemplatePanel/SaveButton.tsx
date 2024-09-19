@@ -21,12 +21,19 @@ export default function SaveButton() {
     if (opener) {
       opener.document.getElementById('content_html').value = codeHtml;
       opener.document.getElementById('content_json').value = codeJson;
+      // if iframe#preview exists, update it
+      const previewFrame = opener.document.getElementById('preview-frame');
+      if (previewFrame) {
+        previewFrame.setAttribute('srcdoc', codeHtml);
+      } else {
+          alert('미리보기 아이프레임을 찾을 수 없습니다.');
+      }
     }
 
     // const c = encodeURIComponent(JSON.stringify(document));
     // location.hash = `#code/${btoa(c)}`;
     // console.log(`#code/${btoa(c)}`);
-    alert('메일 템플릿을 저장해야 최종 저장됩니다.');
+    alert('템플릿이 반영되었습니다. 메일 템플릿을 저장해야 최종 저장됩니다.');
 
     // close window
     window.close();

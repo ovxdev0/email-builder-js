@@ -29,7 +29,7 @@ export default function SamplesDrawer() {
 
           <Stack alignItems="flex-start">
             <SidebarButton href="#">Empty</SidebarButton>
-            <SidebarButton href="#sample/otondo-sample">OTONDO Sample</SidebarButton>
+            <SidebarButton href="#sample/otondo-sample">[OTONDO] 샘플 템플릿</SidebarButton>
             <SidebarButton href="#sample/welcome">Welcome email</SidebarButton>
             <SidebarButton href="#sample/one-time-password">One-time passcode (OTP)</SidebarButton>
             <SidebarButton href="#sample/reset-password">Reset password</SidebarButton>

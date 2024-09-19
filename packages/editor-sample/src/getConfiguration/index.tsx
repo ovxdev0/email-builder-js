@@ -7,11 +7,14 @@ import RESET_PASSWORD from './sample/reset-password';
 import RESPOND_TO_MESSAGE from './sample/respond-to-message';
 import SUBSCRIPTION_RECEIPT from './sample/subscription-receipt';
 import WELCOME from './sample/welcome';
+import OTONDO_SAMPLE from './sample/otondo-sample';
 
 export default function getConfiguration(template: string) {
   if (template.startsWith('#sample/')) {
     const sampleName = template.replace('#sample/', '');
     switch (sampleName) {
+      case 'otondo-sample':
+        return OTONDO_SAMPLE;
       case 'welcome':
         return WELCOME;
       case 'one-time-password':

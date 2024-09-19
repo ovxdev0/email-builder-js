@@ -29,6 +29,7 @@ export default function SamplesDrawer() {
 
           <Stack alignItems="flex-start">
             <SidebarButton href="#">Empty</SidebarButton>
+            <SidebarButton href="#sample/otondo-sample">OTONDO Sample</SidebarButton>
             <SidebarButton href="#sample/welcome">Welcome email</SidebarButton>
             <SidebarButton href="#sample/one-time-password">One-time passcode (OTP)</SidebarButton>
             <SidebarButton href="#sample/reset-password">Reset password</SidebarButton>
@@ -41,16 +42,16 @@ export default function SamplesDrawer() {
 
           <Divider />
 
-          <Stack>
+          {/* <Stack>
             <Button size="small" href="https://www.usewaypoint.com/open-source/emailbuilderjs" target="_blank">
               Learn more
             </Button>
             <Button size="small" href="https://github.com/usewaypoint/email-builder-js" target="_blank">
               View on GitHub
             </Button>
-          </Stack>
+          </Stack> */}
         </Stack>
-        <Stack spacing={2} px={0.75} py={3}>
+        {/* <Stack spacing={2} px={0.75} py={3}>
           <Link href="https://usewaypoint.com?utm_source=emailbuilderjs" target="_blank" sx={{ lineHeight: 1 }}>
             <Box component="img" src={logo} width={32} />
           </Link>
@@ -72,7 +73,7 @@ export default function SamplesDrawer() {
           >
             Learn more
           </Button>
-        </Stack>
+        </Stack> */}
       </Stack>
     </Drawer>
   );

@@ -5,7 +5,8 @@ import {
   VerticalAlignCenterOutlined,
   VerticalAlignTopOutlined,
 } from '@mui/icons-material';
-import { Stack, ToggleButton } from '@mui/material';
+import { Stack, ToggleButton, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { ImageProps, ImagePropsSchema } from '@usewaypoint/block-image';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
@@ -18,8 +19,23 @@ type ImageSidebarPanelProps = {
   data: ImageProps;
   setData: (v: ImageProps) => void;
 };
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
 export default function ImageSidebarPanel({ data, setData }: ImageSidebarPanelProps) {
   const [, setErrors] = useState<Zod.ZodError | null>(null);
+
+  // const [imgUrlValue, setImgUrlValue] = useState(data.props?.url ?? '');
 
   const updateData = (d: unknown) => {
     const res = ImagePropsSchema.safeParse(d);
@@ -36,11 +52,38 @@ export default function ImageSidebarPanel({ data, setData }: ImageSidebarPanelPr
       <TextInput
         label="Source URL"
         defaultValue={data.props?.url ?? ''}
+        // defaultValue={imgUrlValue}
         onChange={(v) => {
           const url = v.trim().length === 0 ? null : v.trim();
           updateData({ ...data, props: { ...data.props, url } });
         }}
       />
+
+      <Button
+        component="label"
+        role={undefined}
+        variant="contained"
+        tabIndex={-1}
+        accept="image/*"
+      >
+        이미지 업로드
+        <VisuallyHiddenInput
+          type="file"
+          multiple={false}
+          onChange={(ev) => {
+            const file = ev.target.files?.[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                const url = e.target?.result as string;
+                updateData({ ...data, props: { ...data.props, url } });
+                // setImgUrlValue(url);
+              };
+              reader.readAsDataURL(file);
+            }
+          }}
+        />
+      </Button>
 
       <TextInput
         label="Alt text"

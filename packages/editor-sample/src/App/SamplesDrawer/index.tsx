@@ -6,6 +6,7 @@ import { useSamplesDrawerOpen } from '../../documents/editor/EditorContext';
 
 import SidebarButton from './SidebarButton';
 import logo from './waypoint.svg';
+import TemplateSearch from "./TemplateSearch";
 
 export const SAMPLES_DRAWER_WIDTH = 240;
 
@@ -42,6 +43,8 @@ export default function SamplesDrawer() {
 
           <Divider />
 
+          <TemplateSearch />
+
           {/* <Stack>
             <Button size="small" href="https://www.usewaypoint.com/open-source/emailbuilderjs" target="_blank">
               Learn more
@@ -50,6 +53,7 @@ export default function SamplesDrawer() {
               View on GitHub
             </Button>
           </Stack> */}
+
         </Stack>
         {/* <Stack spacing={2} px={0.75} py={3}>
           <Link href="https://usewaypoint.com?utm_source=emailbuilderjs" target="_blank" sx={{ lineHeight: 1 }}>

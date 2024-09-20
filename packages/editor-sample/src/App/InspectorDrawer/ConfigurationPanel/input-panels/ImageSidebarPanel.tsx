@@ -5,7 +5,7 @@ import {
   VerticalAlignCenterOutlined,
   VerticalAlignTopOutlined,
 } from '@mui/icons-material';
-import { Stack, ToggleButton, Button } from '@mui/material';
+import { Stack, ToggleButton, Button, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { ImageProps, ImagePropsSchema } from '@usewaypoint/block-image';
 
